@@ -8,6 +8,9 @@
 - 1.self-attention
 queryとmemoryが一致する x , x  
 Self-Attention は言語の文法構造であったり、照応関係（its が指してるのは Law だよねとか）を獲得するのにも使われている
+Self Attentionは簡単に言うと「離れた所も畳み込めるCNN」の様なものです。
+
+
 
 - 2.SouceTarget-Attention
 queryとmemoryが一致しない  x , y  
