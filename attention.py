@@ -18,6 +18,9 @@ class SimpleAttention(tf.keras.models.Model):
     k = self.k_dense_layer(memory)
     v = self.v_dense_layer(memory)
     
+    # scaled dot-product attention コンパイラで定義されている変数を利用
+    q *= depth ** -0.5
+    
     # matmulは行列の内積を計算する関数
     logit = tf.matmul(q, k, transpose_b=True)
     
