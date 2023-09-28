@@ -2,3 +2,12 @@
 
 ![simple Attentionの論文バージョン](https://camo.qiitausercontent.com/9b8af7118dcd4c006bc531f105f969b1da00dbc9/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f36313037392f38626631643534342d663834322d343336322d303365392d3333343533333338363563362e706e67)
 
+## 2種類のAttentionの使い方がある
+- 1.self-attention
+queryとmemoryが一致する x , x  
+Self-Attention は言語の文法構造であったり、照応関係（its が指してるのは Law だよねとか）を獲得するのにも使われている
+
+- 2.SouceTarget-Attention
+queryとmemoryが一致しない  x , y  
+SourceTarget-Attention は Transformer では Decoder で使われます。
+Decoder はある時刻 t のトークンを受け取って t+1 の時刻のトークンを予測します。
