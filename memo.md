@@ -27,3 +27,20 @@ Softmax の logit は query と key の行列積です。従って、 query, key
 attention\_weight = softmax(\frac{qk^T}{\sqrt{depth}})
 
 ```
+
+### MASKを用いる
+attention_weight を0にしたい場合は次の２つがある。
+⇒softmax関数において,-∞にすることで0にする
+
+- PAD を無視したい ⇒ トークン列の長さを統一させるための処理  
+PADによって計算処理の結果が変わってしまう⇒そのため、PADは無視する必要がある。
+
+- Decoder の Self-Attention で未来の情報を参照できないようにしたい  
+![maskにおいて未来の情報を参照できないようにする](https://camo.qiitausercontent.com/c1c0194389ab9dbf3831853913dc15b5710255cc/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f36313037392f38646161313233372d623336392d663233342d376134332d6233356539383634383837392e706e67)
+
+## Multi-head Attention
+仕組み：  
+query, key, value をそれぞれ head_num 個に split してからそれぞれ attention を計算し、最後に concat するだけです。
+この Multi-head Attention が RNN における LSTM, GRU セルのように Attention ベースのモデルの基本単位になってきます。
+
+![Multi-head Attentionの仕組み図](https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F61079%2F5a964f15-4997-e9e7-c13e-9aeab8ea1a61.png?ixlib=rb-4.0.0&auto=format&gif-q=60&q=75&w=1400&fit=max&s=e340f30c512c21effe2ea94614058470)
