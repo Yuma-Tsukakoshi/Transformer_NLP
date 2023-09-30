@@ -138,6 +138,7 @@ class selfAttention(MultiheadAttention):
     attention_mask: tf.Tensor,
     training: bool,
   ) -> tf.Tensor:
+    # 親クラスのcallメソッドを呼び出している
       return super().call(
             input=input,
             memory=input,
