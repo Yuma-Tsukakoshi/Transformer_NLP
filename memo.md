@@ -52,3 +52,9 @@ query, key, value をそれぞれ head_num 個に split してからそれぞれ
 Transformer はあちこちに Layer Normalization, Dropout, Residual Connection などの正則化をいれている→過学習を避けるため
 ![ResidualNormalizationWrapper](https://camo.qiitausercontent.com/fc2513d5ec2e84b2eb0667f5b517ffd3b17df0ae/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f36313037392f30633533666362352d303533342d383063302d616132612d3462646530386662336538652e706e67)
 
+## Positional Encoding
+位置を記憶するために各トークンに番号を振り分ける→sin,cosに変換して値を決める
+
+### Token Embedding
+文を単語などで分割した各トークンは数値（int）なのですが、 DeepLearning で扱うためにはこれを Embedded Vector にする必要があります。
+tensorflow で言語処理をやったことがある人にはおなじみ tf.nn.embedding_lookup ですね。
