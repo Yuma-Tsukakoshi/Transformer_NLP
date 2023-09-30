@@ -22,7 +22,13 @@ class FeedForwardNetwork(tf.keras.models.Model):
         tensor = self.dropout_layer(tensor, training=training)
         return self.output_dense_layer(tensor)
       
+      
+
 class LayerNormalization(tf.keras.layers.Layer):
+  '''
+  レイヤー正規化という手法を実装したクラスです。レイヤー正規化とは、ニューラルネットワークの各層で、入力データの分布を平均0、分散1になるように正規化することです12。これにより、学習が安定したり、高速化したりする効果が期待できます12。
+  '''
+
   def build(self, input_shape: tf.TensorShape) -> None:
         hidden_dim = input_shape[-1]
         self.scale = self.add_weight('layer_norm_scale', shape=[hidden_dim],initializer=tf.ones_initializer())
