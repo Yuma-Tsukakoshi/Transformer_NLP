@@ -48,4 +48,7 @@ query, key, value をそれぞれ head_num 個に split してからそれぞれ
 何度も繰り返し適用することでより複雑な学習ができるようになる
 ⇒Hopping  
 
+## ResidualNormalizationWrapper
+Transformer はあちこちに Layer Normalization, Dropout, Residual Connection などの正則化をいれている→過学習を避けるため
+![ResidualNormalizationWrapper](https://camo.qiitausercontent.com/fc2513d5ec2e84b2eb0667f5b517ffd3b17df0ae/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f36313037392f30633533666362352d303533342d383063302d616132612d3462646530386662336538652e706e67)
 

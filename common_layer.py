@@ -41,3 +41,17 @@ class LayerNormalization(tf.keras.layers.Layer):
       norm_x = (x - mean) * tf.rsqrt(variance + epsilon)
       
       return norm_x * self.scale + self.bias
+
+class ResidualNormalizationWrapper(tf.keras.models.Model):
+  def __init__(self, layer: tf.keras.layer.Layer, dropout_rate: float, *args, **kwargs) -> None:
+    super().__init__(*args, **kwargs)
+    self.layer = layer
+    self.layer_normalization = LayerNormalization()
+    self.dropout_layer = tf.keras.layers.Dropout(dropout_rate)
+    
+  def call(self, input: tf.Tensor, training: bool, *args, **kwargs) -> tf.Tensor:
+    tensor = self.layer_normalization(input)
+    tensor = self.layer(tensor, training=training, *args, **kwargs)
+    tensor = self.dropout_layer(tensor, training=training)
+    return input + tensor
+
