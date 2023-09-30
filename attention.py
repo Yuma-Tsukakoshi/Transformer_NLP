@@ -110,9 +110,12 @@ class MultiheadAttention(tf.keras.models.Model):
         となります。
         '''
         
+        # tf.name_scopeという関数は、テンソルや演算に名前を付ける
         with tf.name_scope('split_head'):
+          # tf.unstackという関数で、そのテンソルを軸ごとに分解してリストにする
           batch_size, length, hidden_dim = tf.unstack(tf.shape(x))
           x = tf.reshape(x, [batch_size, length, self.head_num, self.hidden_dim // self.head_num])
+          # 元々の形状が[batch_size, length, head_num, hidden_dim//head_num]であるテンソルを、[batch_size, head_num, length, hidden_dim//head_num]という形状にする。
           return tf.transpose(x, [0, 2, 1, 3])
     
     def _combine_head(self, x: tf.Tensor) -> tf.Tensor:

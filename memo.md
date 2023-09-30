@@ -44,3 +44,8 @@ query, key, value をそれぞれ head_num 個に split してからそれぞれ
 この Multi-head Attention が RNN における LSTM, GRU セルのように Attention ベースのモデルの基本単位になってきます。
 
 ![Multi-head Attentionの仕組み図](https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F61079%2F5a964f15-4997-e9e7-c13e-9aeab8ea1a61.png?ixlib=rb-4.0.0&auto=format&gif-q=60&q=75&w=1400&fit=max&s=e340f30c512c21effe2ea94614058470)
+
+何度も繰り返し適用することでより複雑な学習ができるようになる
+⇒Hopping  
+
+
