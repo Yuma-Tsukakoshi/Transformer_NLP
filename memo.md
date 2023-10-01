@@ -57,4 +57,8 @@ Transformer はあちこちに Layer Normalization, Dropout, Residual Connection
 
 ### Token Embedding
 文を単語などで分割した各トークンは数値（int）なのですが、 DeepLearning で扱うためにはこれを Embedded Vector にする必要があります。
-tensorflow で言語処理をやったことがある人にはおなじみ tf.nn.embedding_lookup ですね。
+tensorflow で言語処理をやったことがある人にはおなじみ tf.nn.embedding_lookup 。
+
+# Encoder
+![encoder model](https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F61079%2F63f94738-f0f7-3587-9061-79d617517425.png?ixlib=rb-4.0.0&auto=format&gif-q=60&q=75&w=1400&fit=max&s=2d4240316e53af7f01d031609d0fd4cf)
+
